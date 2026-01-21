@@ -1,5 +1,11 @@
 const App = () => {
 
+    const feedbacks = [
+        {id: 1, rating: 1, text: 'Text 1' },
+        {id: 2, rating: 2, text: 'Text 2' },
+        {id: 3, rating: 3, text: 'Text 3' }
+    ]
+
     let a = "World's from Che"
     let b = 2026
     const isValid = false
@@ -7,7 +13,7 @@ const App = () => {
     if (isValid) {
         a
     } else {
-        b
+        b = 2028
     }
 
     return (
@@ -23,6 +29,10 @@ Hello, {a} !!
           { isValid ? a : b + 2}
 
       </p>
+
+          <p>
+              {JSON.stringify(feedbacks)}
+          </p>
           </>
   )
 }
