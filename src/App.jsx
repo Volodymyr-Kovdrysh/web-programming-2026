@@ -10,8 +10,11 @@ const App = () => {
 
     return (
       <>
-          <Header />
-          <FeedbackList f={'foo'} boo={'boo'} feedbacks={feedbacks}/>
+          <Header bgColor={'rgba(0,0,0,0.4)'} textColor={'#ff6095'}/>
+          <div className="container">
+              <FeedbackList f={'foo'} boo={'boo'} feedbacks={feedbacks}/>
+          </div>
+
       </>
   )
 }

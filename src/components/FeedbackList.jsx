@@ -1,13 +1,20 @@
 import React from 'react';
+import FeedbackItem from "./FeedbackItem.jsx";
 
 function FeedbackList({feedbacks: list }){
 
+    if (!list || list.length === 0) {
+        return <p>
+            Ще немає відгуків
+        </p>
+    }
+
     return (
-        <>
-            <p>
-                {JSON.stringify(list)}
-            </p>
-        </>
+        <div className={'feedback-list'}>
+
+            {list.map(item => <FeedbackItem feedback={item} key={item.id}/>)}
+
+        </div>
     );
 }
 
