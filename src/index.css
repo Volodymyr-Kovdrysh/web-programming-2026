@@ -15,6 +15,12 @@ body {
 ul {
     list-style: none;
 }
+
+
+.active {
+    background: #000;
+    color: red;
+}
 .container {
     max-width: 768px;
     margin: auto;
@@ -160,7 +166,7 @@ input:focus {
     color: rebeccapurple;
 }
 .about-link {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     color: #fff;

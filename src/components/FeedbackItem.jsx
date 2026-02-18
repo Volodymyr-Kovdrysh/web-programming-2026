@@ -12,8 +12,7 @@ const FeedbackItem = ({feedback, deleteFeedback}) => {
             }>
                 <FaTimes color="purple"/>
             </button>
-            <div className="text-display">Text</div>
-            {JSON.stringify(feedback, null, 2)}
+            <div className="text-display">{feedback.text}</div>
         </Card>
     );
 };

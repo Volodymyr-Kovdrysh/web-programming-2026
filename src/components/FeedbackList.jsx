@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {motion} from "motion/react"
 import FeedbackItem from "./FeedbackItem.jsx";
+import FeedbackContext from "../context/FeedbackContext.jsx";
 
-function FeedbackList({feedbacks: list , deleteFeedback}){
-
+function FeedbackList(){
+    const {feedbacks: list, deleteFeedback} = useContext(FeedbackContext);
     if (!list || list.length === 0) {
         return <p>
             Ще немає відгуків
@@ -12,9 +14,16 @@ function FeedbackList({feedbacks: list , deleteFeedback}){
     return (
         <div className={'feedback-list'}>
 
-            {list.map(item => <FeedbackItem
+            {list.map(item => <motion.div
+                key={item.id}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+            >
+            <FeedbackItem
             deleteFeedback={deleteFeedback}
-                feedback={item} key={item.id}/>)}
+                feedback={item} />
+            </motion.div>)}
 
         </div>
     );

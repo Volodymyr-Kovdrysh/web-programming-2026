@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import FeedbackContext from "../context/FeedbackContext.jsx";
 
-const FeedbackStat = ({feedbacks}) => {
+const FeedbackStat = () => {
+    const {feedbacks} = useContext(FeedbackContext);
     let msgcount;
     if (feedbacks.length === 1) { msgcount = 'відгук'}
     else{
@@ -14,10 +16,12 @@ const FeedbackStat = ({feedbacks}) => {
     average = average.toFixed(1).replace(/[.,]0$/,"")
 
     return (
+        <>
         <div className="feedback-stats">
             <h4>{`${feedbacks.length}   ${msgcount}`}</h4>
             <h4>Сер. рейтинг: {average}</h4>
         </div>
+        </>
     );
 };
 

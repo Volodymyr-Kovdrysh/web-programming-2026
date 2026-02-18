@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types'
+import Feed from "../context/FeedbackContext.jsx";
 
-const Header = ({text='Опитувальник UI', bgColor='red', textColor='green'}) => {
+const Header = ({text='Опитувальник UI',
+                    bgColor='rgba(0,0,0,0.4)',
+                    textColor='#ff6095'}) => {
+    const ctx = useContext(Feed)
     const headerStyle = {
         backgroundColor: bgColor,
         color: textColor,
     }
 
-        return (
+        return (<>
         <header style={headerStyle}>
 <div className="container">
     <h2>{text}
@@ -15,6 +19,8 @@ const Header = ({text='Опитувальник UI', bgColor='red', textColor='g
 </div>
 
         </header>
+                {JSON.stringify(ctx, null, 2)}
+            </>
     );
 };
 
