@@ -1,10 +1,26 @@
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import {FeedbackData} from "../data/FeedbackData.js";
 import { v4 as uuidv4 } from 'uuid'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-    const [feedbacks, setFeedbacks] = useState(FeedbackData)
+    const [feedbacks, setFeedbacks] = useState([])
+    const [feedbackEdit, setFeedbackEdit] = useState({
+        item: {},
+        edit: false,
+    })
+    useEffect(() => {
+        fetchFeedback()
+        // fetchTheme()
+    },[])
+
+    const fetchFeedback = async () => {
+        const response = await fetch('http://localhost:3000/feedbacks')
+        const data = await response.json();
+        console.log(data)
+        setFeedbacks(data)
+        // setIsLoading(false)
+    }
 
     const addFeedback = (newFeedback) => {
         newFeedback.id = uuidv4()
@@ -17,8 +33,21 @@ export const FeedbackProvider = ({ children }) => {
 
     }
 
+    const editFeedback = (item) => {
+        setFeedbackEdit({item, edit: true})
+    }
+
+    const updateFeedback = (id, updItem) => {
+        setFeedbacks(feedbacks.map(item => item.id === id ? {...item, ...updItem} : item))
+        setFeedbackEdit({
+            item: {},
+            edit: false,
+        })
+    }
+
     return <FeedbackContext.Provider
-        value={{feedbacks, addFeedback, deleteFeedback}}>
+        value={{feedbacks, feedbackEdit,
+            addFeedback, deleteFeedback, editFeedback, updateFeedback}}>
         {children}
     </FeedbackContext.Provider>;
 }

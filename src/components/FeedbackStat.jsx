@@ -12,7 +12,7 @@ const FeedbackStat = () => {
         }
     }
 
-    let average = feedbacks.reduce((sum, cur) => sum + cur.rating , 0) / feedbacks.length;
+    let average = feedbacks.reduce((sum, cur) => sum + +cur.rating , 0) / feedbacks.length;
     average = average.toFixed(1).replace(/[.,]0$/,"")
 
     return (

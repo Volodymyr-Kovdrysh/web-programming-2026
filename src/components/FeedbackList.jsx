@@ -4,7 +4,7 @@ import FeedbackItem from "./FeedbackItem.jsx";
 import FeedbackContext from "../context/FeedbackContext.jsx";
 
 function FeedbackList(){
-    const {feedbacks: list, deleteFeedback} = useContext(FeedbackContext);
+    const {feedbacks: list} = useContext(FeedbackContext);
     if (!list || list.length === 0) {
         return <p>
             Ще немає відгуків
@@ -21,7 +21,6 @@ function FeedbackList(){
                 exit={{opacity: 0}}
             >
             <FeedbackItem
-            deleteFeedback={deleteFeedback}
                 feedback={item} />
             </motion.div>)}
 
