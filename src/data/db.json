@@ -1,8 +1,24 @@
 {
   "feedbacks": [
-    {"id": 1, "rating": 1, "text": "Text 1 from json-server" },
-    {"id": 2, "rating": 1, "text": "Text 2 from json-server" },
-    {"id": 3, "rating": 1, "text": "Text 3 from json-server" },
-    {"id": 4, "rating": 1, "text": "Text 4 from json-server" }
+    {
+      "id": "1",
+      "rating": 1,
+      "text": "Text 1 from json-server"
+    },
+    {
+      "id": "2",
+      "rating": 1,
+      "text": "Text 2 from json-server"
+    },
+    {
+      "rating": 10,
+      "text": "Text 3 from json-server",
+      "id": "3"
+    },
+    {
+      "id": "154e",
+      "rating": 8,
+      "text": "нове тестове повідомлення"
+    }
   ]
 }
