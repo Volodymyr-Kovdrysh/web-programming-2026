@@ -6,7 +6,7 @@ import Spinner from "../shared/Spinner.jsx";
 
 function FeedbackList(){
     const {feedbacks: list, isLoading} = useContext(FeedbackContext);
-    if (!list || list.length === 0) {
+    if (!isLoading && (!list || list.length === 0)) {
         return <p>
             Ще немає відгуків
         </p>
